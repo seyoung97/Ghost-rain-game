@@ -1,37 +1,9 @@
-class Hero {
-  constructor() {
-    this.heroElement = document.getElementById('hero');
-    this.left = Number(getComputedStyle(this.heroElement).left.split('px')[0]);
+const heroElement = document.getElementById("hero");
+// 용사에 접근하고 heroElement라는 변수에 추가
+console.log(heroElement);
 
-    this.speed = 10;
-    this.isRightKey = false;
-    this.isLeftKey = false;
-  }
+heroElement.className = "right";
+// 용사의 class 이름을 right로 수정, 잘 바뀌었는 개발자 도구로 확인.
+// html에 class ="right" 추가된거 확인할 수 있음.
 
-  move(direction) {
-    switch (direction) {
-      case 'right':
-        this.heroElement.className = 'right';
-        this.setLeft(-this.speed);
-        break;
-      case 'left':
-        this.heroElement.className = 'left';
-        this.setLeft(this.speed);
-        break;
-      default:
-    }
-  }
-
-  stop() {
-    this.heroElement.className = 'face';
-  }
-
-  setLeft(left) {
-    const newleft = this.left - left;
-
-    if (newleft > BG_WIDTH - HERO_WIDTH || newleft < 0) return;
-
-    this.left = newleft;
-    this.heroElement.style.left = this.left + 'px';
-  }
-}
+heroElement.style.left = "30px";
